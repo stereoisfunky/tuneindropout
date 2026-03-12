@@ -1,0 +1,9 @@
+# Font — PP Neue Machina is commercially licensed, not for public repos
+assets/fonts/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
