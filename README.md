@@ -93,8 +93,3 @@ python3 -m http.server 8080
 # then open http://localhost:8080
 ```
 
----
-
-## Deployment
-
-Drop the folder into Ghost as a static route or serve from any static host. The font file (`assets/fonts/PPNeueMachina-subset.woff2`) is gitignored — copy it manually from the main `stefanotrento` repo before deploying.
