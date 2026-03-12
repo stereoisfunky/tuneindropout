@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Soundscapes — mix natural sounds, noise, and binaural beats.">
+  <title>Tune in Drop out — Stefano Trento</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="page-wrap">
+
+    <!-- ── Header ── -->
+    <header class="site-header">
+      <p class="header-label arise">Stefano Trento</p>
+      <h1 class="header-title arise">Tune in Drop out</h1>
+      <p class="header-sub arise">Mix, blend, and drift away.</p>
+    </header>
+
+    <!-- ── Master Volume Knob ── -->
+    <div class="master-vol arise">
+      <div class="knob-wrap" id="master-knob" role="slider" aria-label="Master Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" tabindex="0">
+        <div class="knob-svg-wrap">
+          <svg class="knob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path class="knob-track" fill="none" stroke-width="7" stroke-linecap="round"
+              d="M 24.54 75.46 A 36 36 0 1 1 75.46 75.46"/>
+            <path class="knob-fill" fill="none" stroke-width="7" stroke-linecap="round" d=""/>
+          </svg>
+          <div class="knob-val" id="master-knob-value">70%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Tab Bar ── -->
+    <nav class="tab-bar arise" role="tablist">
+      <button class="tab-btn active" data-tab="natural" role="tab" aria-selected="true">Natural</button>
+      <button class="tab-btn" data-tab="noise" role="tab" aria-selected="false">Noise</button>
+      <button class="tab-btn" data-tab="binaural" role="tab" aria-selected="false">Binaural</button>
+    </nav>
+
+    <!-- ══════════════════════════════════════
+         PANEL: Natural Sounds
+         ══════════════════════════════════════ -->
+    <section id="panel-natural" class="tab-panel active" role="tabpanel">
+      <div class="tiles-grid">
+
+        <!-- Ocean -->
+        <div class="sound-tile" data-sound="ocean" role="button" aria-label="Ocean sound" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
+            </svg>
+          </div>
+          <span class="tile-label">Ocean</span>
+        </div>
+
+        <!-- Rain -->
+        <div class="sound-tile" data-sound="rain" role="button" aria-label="Rain sound" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/>
+            </svg>
+          </div>
+          <span class="tile-label">Rain</span>
+        </div>
+
+        <!-- Dripping -->
+        <div class="sound-tile" data-sound="dripping" role="button" aria-label="Dripping sound" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>
+            </svg>
+          </div>
+          <span class="tile-label">Dripping</span>
+        </div>
+
+        <!-- Birds -->
+        <div class="sound-tile" data-sound="bird" role="button" aria-label="Bird sound" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/>
+            </svg>
+          </div>
+          <span class="tile-label">Birds</span>
+        </div>
+
+        <!-- Crickets -->
+        <div class="sound-tile" data-sound="crickets" role="button" aria-label="Crickets sound" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <!-- Cricket / bug icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3l5 5M3 8l5-5"/><path d="M21 3l-5 5M21 8l-5-5"/><path d="M9 17c0 2.76 1.34 5 3 5s3-2.24 3-5"/>
+              <ellipse cx="12" cy="13" rx="5" ry="4"/><path d="M9 17l-4 2M15 17l4 2"/>
+              <path d="M9 10l-2-3M15 10l2-3"/>
+            </svg>
+          </div>
+          <span class="tile-label">Crickets</span>
+        </div>
+
+        <!-- Fire -->
+        <div class="sound-tile" data-sound="fire" role="button" aria-label="Fire sound" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+            </svg>
+          </div>
+          <span class="tile-label">Fire</span>
+        </div>
+
+        <!-- Stream -->
+        <div class="sound-tile" data-sound="stream" role="button" aria-label="Stream sound" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <!-- Flowing stream / wavy lines -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 10c1-.6 2-1 3.5-1S8 9.5 9.5 10s2.5 1 4 1 2.5-.5 4-1 2.5-1 4-1"/>
+              <path d="M2 14c1-.6 2-1 3.5-1S8 13.5 9.5 14s2.5 1 4 1 2.5-.5 4-1 2.5-1 4-1"/>
+              <path d="M2 18c1-.6 2-1 3.5-1S8 17.5 9.5 18s2.5 1 4 1 2.5-.5 4-1 2.5-1 4-1"/>
+            </svg>
+          </div>
+          <span class="tile-label">Stream</span>
+        </div>
+
+        <!-- Cat -->
+        <div class="sound-tile" data-sound="cat" role="button" aria-label="Cat sound" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <!-- Cat silhouette -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z"/>
+              <path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/>
+            </svg>
+          </div>
+          <span class="tile-label">Cat</span>
+        </div>
+
+        <!-- Wind -->
+        <div class="sound-tile" data-sound="wind" role="button" aria-label="Wind sound" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>
+            </svg>
+          </div>
+          <span class="tile-label">Wind</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         PANEL: Noise
+         ══════════════════════════════════════ -->
+    <section id="panel-noise" class="tab-panel" role="tabpanel">
+      <div class="tiles-grid" style="grid-template-columns: repeat(3, 1fr)">
+
+        <!-- White noise -->
+        <div class="noise-tile" data-noise="white" role="button" aria-label="White noise" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"/>
+            </svg>
+          </div>
+          <span class="tile-label">White</span>
+        </div>
+
+        <!-- Pink noise -->
+        <div class="noise-tile" data-noise="pink" role="button" aria-label="Pink noise" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 10h3l2-7 2 14 2-10 2 4h3l2-3 2 6h2"/>
+            </svg>
+          </div>
+          <span class="tile-label">Pink</span>
+        </div>
+
+        <!-- Brown noise -->
+        <div class="noise-tile" data-noise="brown" role="button" aria-label="Brown noise" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 16h3l2-8 2 12 2-8 2 6h3l2-4 2 4h2"/>
+            </svg>
+          </div>
+          <span class="tile-label">Brown</span>
+        </div>
+
+      </div>
+
+      <!-- Parametric EQ -->
+      <div class="eq-section section-card">
+        <p class="eq-label">Parametric EQ</p>
+        <div class="eq-grid">
+          <!-- 6 EQ bands: 60 250 800 2K 5K 11K -->
+          <div class="eq-col">
+            <div class="eq-slider" data-eq="0">
+              <div class="eq-fill" style="height:50%"></div>
+              <div class="eq-thumb" style="bottom:calc(50% - 12px)"></div>
+            </div>
+            <span class="eq-freq-label">60</span>
+          </div>
+          <div class="eq-col">
+            <div class="eq-slider" data-eq="1">
+              <div class="eq-fill" style="height:50%"></div>
+              <div class="eq-thumb" style="bottom:calc(50% - 12px)"></div>
+            </div>
+            <span class="eq-freq-label">250</span>
+          </div>
+          <div class="eq-col">
+            <div class="eq-slider" data-eq="2">
+              <div class="eq-fill" style="height:50%"></div>
+              <div class="eq-thumb" style="bottom:calc(50% - 12px)"></div>
+            </div>
+            <span class="eq-freq-label">800</span>
+          </div>
+          <div class="eq-col">
+            <div class="eq-slider" data-eq="3">
+              <div class="eq-fill" style="height:50%"></div>
+              <div class="eq-thumb" style="bottom:calc(50% - 12px)"></div>
+            </div>
+            <span class="eq-freq-label">2K</span>
+          </div>
+          <div class="eq-col">
+            <div class="eq-slider" data-eq="4">
+              <div class="eq-fill" style="height:50%"></div>
+              <div class="eq-thumb" style="bottom:calc(50% - 12px)"></div>
+            </div>
+            <span class="eq-freq-label">5K</span>
+          </div>
+          <div class="eq-col">
+            <div class="eq-slider" data-eq="5">
+              <div class="eq-fill" style="height:50%"></div>
+              <div class="eq-thumb" style="bottom:calc(50% - 12px)"></div>
+            </div>
+            <span class="eq-freq-label">11K</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         PANEL: Binaural
+         ══════════════════════════════════════ -->
+    <section id="panel-binaural" class="tab-panel" role="tabpanel">
+      <div class="tiles-grid" style="grid-template-columns: repeat(3, 1fr)">
+
+        <!-- Sleep -->
+        <div class="preset-tile" data-preset="sleep" role="button" aria-label="Sleep preset" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+          </div>
+          <span class="tile-label">Sleep</span>
+        </div>
+
+        <!-- Dream -->
+        <div class="preset-tile" data-preset="dream" role="button" aria-label="Dream preset" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/><path d="M19 3v4"/><path d="M21 5h-4"/>
+            </svg>
+          </div>
+          <span class="tile-label">Dream</span>
+        </div>
+
+        <!-- Creativity -->
+        <div class="preset-tile" data-preset="creativity" role="button" aria-label="Creativity preset" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.5 4.5 0 1 0 7.5 9.5c0 1.47.7 2.74 1.78 3.56.35.28.56.68.56 1.11v.83H15v-.83c0-.43.21-.83.56-1.11.01 0 .52-.36.53-.06z"/>
+            </svg>
+          </div>
+          <span class="tile-label">Creativity</span>
+        </div>
+
+        <!-- Relaxation -->
+        <div class="preset-tile" data-preset="relaxation" role="button" aria-label="Relaxation preset" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+            </svg>
+          </div>
+          <span class="tile-label">Relaxation</span>
+        </div>
+
+        <!-- Focus -->
+        <div class="preset-tile" data-preset="focus" role="button" aria-label="Focus preset" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <span class="tile-label">Focus</span>
+        </div>
+
+        <!-- Productivity -->
+        <div class="preset-tile" data-preset="productivity" role="button" aria-label="Productivity preset" tabindex="0">
+          <div class="tile-fill"></div>
+          <div class="tile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.44-3.16A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.44-3.16A2.5 2.5 0 0 0 14.5 2Z"/>
+            </svg>
+          </div>
+          <span class="tile-label">Productivity</span>
+        </div>
+
+      </div>
+
+      <!-- Frequency controls -->
+      <div class="binaural-sliders arise">
+        <div class="range-row">
+          <div class="range-row-header">
+            <span class="range-row-label">Brainwave</span>
+            <span class="range-row-value" id="brainwave-value">8.00 Hz</span>
+          </div>
+          <input
+            id="brainwave-slider"
+            type="range"
+            min="0.1" max="102.4" step="0.01"
+            value="8"
+            aria-label="Brainwave frequency"
+            style="--pct: 7.7%"
+          >
+        </div>
+        <div class="range-row">
+          <div class="range-row-header">
+            <span class="range-row-label">Carrier</span>
+            <span class="range-row-value" id="carrier-value">220 Hz</span>
+          </div>
+          <input
+            id="carrier-slider"
+            type="range"
+            min="20" max="1000" step="1"
+            value="220"
+            aria-label="Carrier frequency"
+            style="--pct: 20%"
+          >
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-wrap -->
+
+  <script src="js/audioEngine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+/* ════════════════════════════════════════════
+   SOUNDSCAPES — style.css
+   Design system: stefanotrento.com
+   ════════════════════════════════════════════ */
+
+/* ── FONTS ── */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+
+@font-face {
+  font-family: 'PP Neue Machina';
+  src: url('../assets/fonts/PPNeueMachina-subset.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── TOKENS ── */
+:root {
+  --black:     #121212;
+  --white:     #FAFAFA;
+  --grey-mid:  #9A9A9A;
+  --grey-dark: #2a2a2a;
+  --signal:    #FF2F00;
+  --tile-bg:   #1c1c1c;
+  --card-bg:   #181818;
+}
+
+/* ── RESET ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── BASE ── */
+html { font-size: 16px; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Satoshi', 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ── ARISE ANIMATION ── */
+@keyframes arise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.arise {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.arise.arise-active {
+  animation: arise 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ════════════════════════════════════════════
+   LAYOUT
+   ════════════════════════════════════════════ */
+
+.page-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4vh 8vw;
+}
+
+/* ── HEADER ── */
+.site-header {
+  margin-bottom: 48px;
+}
+
+.header-label {
+  font-family: 'PP Neue Machina', 'Helvetica Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 12px;
+}
+
+.header-title {
+  font-family: 'Georgia', serif;
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.header-sub {
+  font-size: 13px;
+  color: var(--grey-mid);
+  letter-spacing: 0.03em;
+}
+
+/* ── SECTION CARD ── */
+.section-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(250,250,250,0.05);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* ════════════════════════════════════════════
+   MASTER VOLUME KNOB
+   ════════════════════════════════════════════ */
+
+.master-vol {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── Knob ── */
+.knob-wrap {
+  width: 140px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  cursor: ns-resize;
+  outline: none;
+}
+
+.knob-wrap:focus-visible .knob-fill {
+  filter: brightness(1.2);
+}
+
+.knob-svg-wrap {
+  position: relative;
+}
+
+.knob-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.knob-track {
+  stroke: var(--grey-dark);
+}
+
+.knob-fill {
+  stroke: var(--signal);
+}
+
+.knob-val {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  pointer-events: none;
+}
+
+
+/* ── RANGE INPUT (shared) ── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--signal) 0%,
+    var(--signal) var(--pct, 70%),
+    var(--grey-dark) var(--pct, 70%),
+    var(--grey-dark) 100%
+  );
+  outline: none;
+  border-radius: 1px;
+  cursor: pointer;
+  --pct: 70%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--signal);
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(255,47,0,0.15);
+  transition: box-shadow 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 5px rgba(255,47,0,0.25);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--signal);
+  cursor: pointer;
+}
+
+/* ════════════════════════════════════════════
+   TABS
+   ════════════════════════════════════════════ */
+
+.tab-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid rgba(250,250,250,0.06);
+  margin-bottom: 12px;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px 8px;
+  font-family: 'PP Neue Machina', 'Helvetica Neue', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--grey-mid);
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  color: var(--white);
+  border-bottom-color: var(--signal);
+}
+
+/* Panels */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ════════════════════════════════════════════
+   SOUND TILES
+   ════════════════════════════════════════════ */
+
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.sound-tile,
+.noise-tile,
+.preset-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 8px;
+  background: var(--tile-bg);
+  border: 1px solid rgba(250,250,250,0.04);
+  cursor: pointer;
+  select: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.sound-tile:hover,
+.noise-tile:hover,
+.preset-tile:hover {
+  border-color: rgba(250,250,250,0.1);
+}
+
+.sound-tile.active,
+.noise-tile.active,
+.preset-tile.active {
+  border-color: var(--signal);
+}
+
+/* Volume fill bar — grows from bottom */
+.tile-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  background: var(--signal);
+  transition: height 0.1s ease;
+  pointer-events: none;
+}
+
+/* Icon */
+.tile-icon {
+  position: relative;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grey-mid);
+  transition: color 0.15s ease;
+}
+
+.tile-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.sound-tile.active .tile-icon,
+.noise-tile.active .tile-icon,
+.preset-tile.active .tile-icon {
+  color: var(--white);
+}
+
+/* Label */
+.tile-label {
+  position: relative;
+  z-index: 1;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey-mid);
+  transition: color 0.15s ease;
+  text-align: center;
+}
+
+.sound-tile.active .tile-label,
+.noise-tile.active .tile-label,
+.preset-tile.active .tile-label {
+  color: var(--white);
+}
+
+/* Volume badge (shown while dragging, optional) */
+.tile-vol-badge {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card-bg);
+  border: 1px solid rgba(250,250,250,0.1);
+  padding: 2px 8px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  pointer-events: none;
+  z-index: 20;
+  white-space: nowrap;
+  display: none;
+}
+
+/* ════════════════════════════════════════════
+   EQ SLIDERS
+   ════════════════════════════════════════════ */
+
+.eq-section {
+  margin-top: 28px;
+}
+
+.eq-label {
+  font-family: 'PP Neue Machina', 'Helvetica Neue', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 20px;
+}
+
+.eq-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.eq-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.eq-slider {
+  position: relative;
+  width: 32px;
+  height: 120px;
+  background: var(--tile-bg);
+  border-radius: 2px;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+}
+
+/* Track fill */
+.eq-fill {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  background: var(--signal);
+  border-radius: 2px;
+  transition: height 0.1s ease;
+  pointer-events: none;
+}
+
+/* Thumb */
+.eq-thumb {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--white);
+  border: 2px solid var(--signal);
+  border-radius: 50%;
+  transition: bottom 0.1s ease;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.eq-freq-label {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--grey-mid);
+  opacity: 0.6;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ════════════════════════════════════════════
+   BINAURAL SLIDERS
+   ════════════════════════════════════════════ */
+
+.binaural-sliders {
+  background: var(--card-bg);
+  border: 1px solid rgba(250,250,250,0.05);
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.range-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.range-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.range-row-label {
+  font-family: 'PP Neue Machina', 'Helvetica Neue', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--grey-mid);
+}
+
+.range-row-value {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+  .page-wrap {
+    padding: 6vh 5vw;
+  }
+
+  .tiles-grid {
+    gap: 8px;
+  }
+
+  .sound-tile,
+  .noise-tile,
+  .preset-tile {
+    padding: 20px 6px;
+  }
+
+  .tile-icon svg { width: 20px; height: 20px; }
+  .tile-label { font-size: 9px; }
+
+  .eq-slider { height: 96px; }
+
+  .header-title { font-size: clamp(28px, 9vw, 42px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arise { opacity: 1; transform: none; animation: none; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
