@@ -9,7 +9,7 @@ Designed to match [stefanotrento.com](https://stefanotrento.com) and hosted as a
 ## Structure
 
 ```
-soundscape-static/
+tuneindropout/
 │
 ├── index.html              # Single page — all markup and inline SVG icons
 │
