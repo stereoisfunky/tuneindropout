@@ -194,13 +194,9 @@ function makeTileInteractive(tile, { getActive, getVolume, onToggle, onVolume })
     e.preventDefault();
     if (getActive()) {
       onStart(e.clientY);
-      const mm = ev => { onMove(ev.clientY); renderTile(tile, getActive, getVolume); };
+      const mm = ev => { onMove(ev.clientY); };
       const mu = () => {
-        if (isDragging && !hasMoved) {
-          onToggle();
-        } else if (!isDragging) {
-          // shouldn't happen, but guard
-        }
+        if (isDragging && !hasMoved) onToggle();
         isDragging = false;
         hasMoved   = false;
         renderTile(tile, getActive, getVolume);
@@ -284,8 +280,8 @@ function renderAllTiles() {
 
 function toggleNaturalSound(id) {
   const s      = state.sounds[id];
-  s.active     = !s.active;
-  s.volume     = s.active ? 50 : s.volume;
+  s.active = !s.active;
+  if (s.active && s.volume === 0) s.volume = 50; // only reset if muted
   if (s.active) {
     window.audioEngine.startNaturalSound(id, s.volume);
   } else {

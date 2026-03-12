@@ -1,4 +1,4 @@
-# Tune in Drop out — Soundscape
+# Tune in Drop out
 
 A zero-dependency ambient sound mixer. Plain HTML, CSS, and JavaScript — no build step, no framework.
 
